@@ -1,3 +1,6 @@
+@import "bourbon";
+@import "mixin";
+
 .entry {
 	border: solid black 3px;
 	background-color: gray;
@@ -45,10 +48,8 @@
 			position: absolute;
 			left: -8px;
 			visibility: hidden;
-		}
-	}
 }
-.ex1slide:hover{
+&:hover {
 	width: 286px;
 
 		.imglg {
@@ -60,37 +61,22 @@
 		.imgsm {
 			opacity: 0;
 		}
+		}
+	}
 }
 
 /*Example number two. light up button.*/
 .button1 {
-	display:block;
-    width:100px;
-    height:100px;
-    line-height:100px;
-    text-align: center;
-    background: #7A1F1A;
-    border-radius: 50%;
-    box-shadow: inset 0 -6px 0 0 #5C1F1B;
-    margin: 10px;
-    transition: all 0 0 linear;
+@include glowbutt(#96dbe5)
+}
+.button2 {
+@include glowbutt(#ab76d3)
+}
+.button3 {
+@include glowbutt(#f92772)
 }
 
-.button1:hover {
-	height: 97px;
-	box-shadow: inset 0 -3px 0 0 #5C1F1B;
-	margin-top: 13px;
-	margin-bottom: 10px;
-}
 
-.button1:active {
-	height: 93px;
-	margin-top: 17px;
-	margin-bottom: 10px;
-	width: 97px;
-	background: #C72D22;
-	box-shadow: 0 0 15px 5px #E8291C;
-}
 
 /*example number 3. expanding image*/
 .example3 {
@@ -105,15 +91,16 @@
 		left: 0;
 		transition: all 0.3s .2s ease-in;
 		position: absolute;
+		
+		&:hover {
+			height: 400px;
+			width: 400px;
+			
+			font-size: 0px;
+			z-index: 1;
+		}
 	}
 	
-	img:hover {
-		height: 400px;
-		width: 400px;
-		
-		font-size: 0px;
-		z-index: 1;
-	}
 
 	p {
 		position: absolute;
@@ -150,28 +137,16 @@
 		margin: 0;
 	}
 
-}
-.zach {
-	transition: .8s 0 linear;
-}
-.bottles{
-	transition: .8s .8s linear;
-	
-}
-.surf {
-	transition: .8s 1.6s linear;
-}
+	&:hover  img{
+		opacity: 0;
+	}
 
-.slideshow:hover .zach{
-	opacity: 0;
 }
-.slideshow:hover .bottles {
-	opacity: 0;
-}
-.slideshow:hover .surf {
-	
-	opacity: 0;
-}
+.zach {transition: .8s 0 linear;}
+.bottles {transition: .8s .8s linear;}
+.surf {transition: .8s 1.6s linear;}
+.beers{transition: 30s 30s ease;}
+
 
 
 /*example 5 flower*/
@@ -181,78 +156,75 @@
 	position: relative;
 	background-color: #87EBFF;
 
+	&:hover {
+
+		.stem {
+			height: 55px;
+			width: 5px;
+			background-color: green;
+			bottom: 0;
+			left: 22px;
+			position: absolute;
+			transition: height .2s 0 linear;
+		}
+
+		.fcenter {
+			height: 15px;
+			width: 15px;
+			background-color: yellow;
+			bottom: 53px;
+			margin-left: 17px;
+			position: absolute;
+			border-radius: 45%;
+			transition: all 0s .2s linear;
+		}
+
+		.petal {
+			height: 20px;
+			width: 20px;
+			position: absolute;
+			border-radius: 50%;
+		}
+
+		.petal1 {
+			background-color: red;
+			bottom: 55px;
+			margin-left: 10px;
+			transition: all 0s .3s linear;
+		}
+
+		.petal2 {
+			background-color: orange;
+			bottom: 55px;
+			margin-left: 20px;
+			transition: all 0s .4s linear;
+		}
+
+		.petal3 {
+			background-color: orange;
+			bottom: 45px;
+			margin-left: 10px;
+			transition: all 0s .5s linear;
+		}
+
+		.petal4 {
+			background-color: red;
+			bottom: 45px;
+			margin-left: 20px;
+			transition: all 0s .6s linear;
+		}
+
+		.petal {
+			height: 20px;
+			width: 20px;
+			position: absolute;
+			border-radius: 50%;
+		}
+	}
 }
 .stem {
 	height: 0px;
 	width: 0px;
-	
-}
-
-.flower:hover {
-
-	.stem {
-		height: 55px;
-		width: 5px;
-		background-color: green;
-		bottom: 0;
-		left: 22px;
-		position: absolute;
-		transition: height .2s 0 linear;
-	}
-
-	.fcenter {
-		height: 15px;
-		width: 15px;
-		background-color: yellow;
-		bottom: 53px;
-		margin-left: 17px;
-		position: absolute;
-		border-radius: 45%;
-		transition: all 0s .2s linear;
-	}
-
-	.petal {
-		height: 20px;
-		width: 20px;
-		position: absolute;
-		border-radius: 50%;
-	}
-
-	.petal1 {
-		background-color: red;
-		bottom: 55px;
-		margin-left: 10px;
-		transition: all 0s .3s linear;
-	}
-
-	.petal2 {
-		background-color: orange;
-		bottom: 55px;
-		margin-left: 20px;
-		transition: all 0s .4s linear;
-	}
-
-	.petal3 {
-		background-color: orange;
-		bottom: 45px;
-		margin-left: 10px;
-		transition: all 0s .5s linear;
-
-	}
-
-	.petal4 {
-		background-color: red;
-		bottom: 45px;
-		margin-left: 20px;
-		transition: all 0s .6s linear;
-	}
-
-	.petal {
-		height: 20px;
-		width: 20px;
-		position: absolute;
-		border-radius: 50%;
-	}
 }
 
 /*example 6. reactive boxes*/
@@ -269,10 +241,10 @@
 		float: left;
 		transition: 0.2s 0 ease;
 		background-color: red;
+		
+		&:hover {
+			margin-top: -10px;
 		}
-
-	div:hover {
-		margin-top: -10px;
 	}
 }
 
@@ -282,6 +254,7 @@
 	width: 100px;
 	background-color: yellow;
 	position: relative;
+
 	div {
 		height: 20px;
 		width: 20px;
@@ -295,14 +268,15 @@
 					border-radius .2s .2s linear,
 					bottom        .5s 0  ease,
 					left        .5s 0  ease;
-	}	
-	div:hover {
-		height: 100px;
-		width: 100px;
-		border-radius: 0;
-		bottom: 0px;
-		left: 0px;
+	
+		&:hover {
+			height: 100px;
+			width: 100px;
+			border-radius: 0;
+			bottom: 0px;
+			left: 0px;
 	}
+	}	
 }
 
 /*example 8. youtube button icon*/
@@ -326,17 +300,17 @@
 		position: absolute;
 		top: 0;
 		left: 30px;
-	}
+	
+		&:hover {
+			background-color: white;
+			color: red;
+		}
 
-	div:hover {
-		background-color: white;
-		color: red;
-	}
-
-	div:active {
-		height: 17px;
-		margin-top: 3px;
-		box-shadow: inset 0px 1px 0px 0px black;	
+		&:active {
+			height: 17px;
+			margin-top: 3px;
+			box-shadow: inset 0px 1px 0px 0px black;	
+		}
 	}
 
 	span {
@@ -363,19 +337,20 @@
 	img {
 		height: 165px;
 		width: 162px;
-		-webkit-transition: all .6s 0 ease;
+		transition: all .6s 0 ease;
+	}
+	
+	&:hover {
+
+		img {
+		@include blur (3px);
+		}
+		span {
+		visibility: visible;
+		}	
 	}
 }
 
-.blur:hover {
-
-	img {
-	-webkit-filter: blur(3px);
-	}
-	span {
-	visibility: visible;
-	}	
-}
 /*example 10*/
 .bar {
 	height: 20px;
@@ -392,26 +367,26 @@
 	background-color: white;
 	position: absolute;
 	transition: all .6s 0 ease;
+		&:hover {
+			width: 190px;
+
+		.content1 {
+			visibility: visible;
+			transition: all 0s .2s ease;
+		}
+
+		.content2 {
+			visibility: visible;
+			transition: all 0s .3s ease;
+		}
+
+		.content3 {
+			visibility: visible;
+			transition: all 0s .5s ease;
+		}
+	}
 }
 
-.more:hover {
-	width: 190px;
-
-	.content1 {
-		visibility: visible;
-		transition: all 0s .2s ease;
-	}
-
-	.content2 {
-		visibility: visible;
-		transition: all 0s .3s ease;
-	}
-
-	.content3 {
-		visibility: visible;
-		transition: all 0s .5s ease;
-	}
-}
 
 /*example 11. spinning icon*/
 .container {
@@ -430,36 +405,35 @@
 
 }
 
-/*example 12*/
 .black-spin {   
     background-color: black;
-    -webkit-animation: rspin 2s linear infinite;
+    @include animation (rspin, 2s, 0, linear, infinite, normal);
 }
 
 .blue-spin {
     background-color: blue;
-    -webkit-animation: lspin 2s linear infinite;
+    @include animation (lspin, 2s, 0, linear, infinite, normal);
 }
 .red-center {
     background-color: red;
     border-radius: 50%;
 }
 
-@-webkit-keyframes rspin {
+@include keyframes (rspin) {
     from{
-        -webkit-transform: rotate(0deg);
+        @include transform(rotate(0deg));
     }
     to{
-        -webkit-transform: rotate(360deg);
+        @include transform (rotate(360deg));
     }
 }
 
 @-webkit-keyframes lspin {
     from{
-        -webkit-transform: rotate(0deg);
+        @include transform(rotate(0deg));
     }
     to{
-        -webkit-transform: rotate(-360deg);
+        @include transform(rotate(-360deg));
     }
 }
 
@@ -478,13 +452,13 @@ div {
 	position: absolute;
 	background-color: red;
 	border-radius: 50%;
-	-webkit-animation: bounce .7s ease-in .1s infinite alternate;
+	@include animation (bounce, .7s, 0, ease-in,  infinite, alternate);
 	}
 
 }
-@-webkit-keyframes bounce {
+@include keyframes(bounce) {
     0% {
-        -webkit-transform: translate(0px, 0px);
+        @include transform(translate(0px, 0px));
         
     }
     95% {
@@ -492,7 +466,7 @@ div {
 		height: 25px;
     }
    	100% {
-	-webkit-transform: translate(0px, 75px);
+	@include transform(translate(0px, 75px));
 	width: 28px;
 	height: 22px;
     }
@@ -514,72 +488,72 @@ div {
 		}
 }
 .circle1 {
-   	-webkit-animation: slidel 2s 0s linear infinite;
+   	@include animation (slidel, 2s, 0s, linear, infinite, normal);
 	background-color: red;
 	left: 0;
 }
 .circle2 {
 	background-color: blue;
 	right: 0;
-	-webkit-animation: slider 2s 0s linear infinite;
+	@include animation (slider, 2s, 0s, linear, infinite, normal);
 }
 
 @-webkit-keyframes slidel {
     0% {
-        -webkit-transform: translate(0px, 0px);
+        @include transform(translate(0px, 0px));
         height: 50px;
 		width: 50px;
     }
     25% {
     	height: 25px;
     	width: 25px;
-    	-webkit-transform: translate(150px, -8px);
+    	@include transform(translate(150px, -8px));
     	z-index: 0;
     }
     50% {
     	height: 50px;
 		width: 50px;
-		-webkit-transform: translate(350px, 0px);
+		@include transform(translate(350px, 0px));
     }
     75% {
     	height: 100px;
 		width: 100px;
-		-webkit-transform: translate(100px, -25px);
+		@include transform(translate(100px, -25px));
 		z-index: 1;
     }
     100% {
-    	-webkit-transform: translate(0px, 0px);
+    	@include transform(translate(0px, 0px));
         height: 50px;
 		width: 50px;
     }
 }
 
-@-webkit-keyframes slider {
+@include keyframes(slider) {
     0% {
-        -webkit-transform: translate(0px, 0px);
+        @include transform(translate(0px, 0px));
         height: 50px;
 		width: 50px;
     }
     25% {
     	height: 100px;
     	width: 100px;
-    	-webkit-transform: translate(-150px, -25px);
+    	@include transform(translate(-150px, -25px));
     	z-index: 1;
     }
     50% {
     	height: 50px;
 		width: 50px;
-		-webkit-transform: translate(-350px, 0px);
+		@include transform(translate(-350px, 0px));
 		
     }
     75% {
     	height: 25px;
 		width: 25px;
-		-webkit-transform: translate(-225px, -8px);
+		@include transform(translate(-225px, -8px));
 		z-index: 0;
     }
     100% {
-    	-webkit-transform: translate(0px, 0px);
+    	@include transform(translate(0px, 0px));
         height: 50px;
 		width: 50px;
     }   
@@ -605,7 +579,7 @@ div {
 	border-radius: 50%;
 	top: 20px;
 	left: 20px;
-    -webkit-animation: blink 3s 0s linear infinite;
+    @include animation (blink, 3s, 0s, linear, infinite, normal);
 }
 
 .eyer {
@@ -615,7 +589,7 @@ div {
 	border-radius: 50%;
 	top: 20px;
 	right: 20px;
-    -webkit-animation: blink 3s 0s linear infinite;
+	@include animation (blink, 3s, 0s, linear, infinite, normal);
 }
 
 .mouth {
@@ -634,10 +608,10 @@ div {
 	background-color: red;
 	top: 65px;
 	left: 45px;
-    -webkit-animation: out 5s 0s linear infinite;
+    @include animation (out, 5s, 0s, linear, infinite, normal);
 }
 
-@-webkit-keyframes out {
+@include keyframes(out) {
 	0% {
 		height: 0px;
 	}
@@ -652,21 +626,21 @@ div {
 	}
 }
 
-@-webkit-keyframes blink {
+@include keyframes(blink) {
 	0% {
-		-webkit-transform: scale(1,1);
+		@include scale (1,1);
 	}
 	10% {
-		-webkit-transform: scale(1,.2);
+		@include scale (1,.2);
 	}
 	20% {
-		-webkit-transform: scale(1,1);
+		@include scale (1,1);
 	}
 	50% {
-		-webkit-transform: scale(1,1);
+		@include scale (1,1);
 	}
 	100% {
-		-webkit-transform: scale(1,1);
+		@include scale (1,1);
 	}
 }
 
@@ -679,7 +653,7 @@ div {
 		div {img{ position: absolute;}}
 }
 
-@-webkit-keyframes manrunc {
+@include keyframes(manrunc) {
 	0% {
 		opacity: 1;
 	}
@@ -694,8 +668,8 @@ div {
 	}
 }
 
-.manrunc {-webkit-animation: manrunc .3s 0s linear infinite;}
-@-webkit-keyframes manrunb {
+.manrunc {@include animation (manrunc, .3s, 0s, linear, infinite, normal);}
+@include keyframes(manrunb) {
 	0% {
 		opacity: 1;
 	}
@@ -712,9 +686,9 @@ div {
 		opacity: 0;
 	}
 }
-.manrunb {-webkit-animation: manrunb .3s 0s linear infinite;}
+.manrunb {@include animation (manrunb, .3s, 0s, linear, infinite, normal)}
 
-@-webkit-keyframes manruna {
+@include keyframes(manruna) {
 	0% {
 		opacity: 1;
 	}
@@ -725,7 +699,7 @@ div {
 		opacity: 0;
 	}
 }
-.manruna {-webkit-animation: manruna .3s 0s linear infinite;}
+.manruna {@include animation (manruna, .3s, 0s, linear, infinite, normal)}
 
 
 /*example 17*/
@@ -737,26 +711,26 @@ div {
 	div {
 		height: 200px;
 		width: 200px;
-		-webkit-animation: slideb 2s 0 linear infinite;
+		@include animation (slideb, 2s, 0, linear, infinite, normal);
 
 			div{
 				height: 200px;
 				width: 200px;
-				-webkit-animation: turnb .3s 0 linear infinite;
+				@include animation (turnb, .3s, 0, linear, infinite, normal);
 
 				div {
 					height: 200px;
 					width: 200px;
 					background-color: red;
 					position: absolute;
-					-webkit-animation: colorb .7s 0 linear infinite;					
+					@include animation (colorb, .7s, 0, linear, infinite, normal);					
 				}
 			}
 	}
 
 }
 
-@-webkit-keyframes colorb {
+@include keyframes(colorb) {
 	0% {
 		background-color: red;
 	}
@@ -768,25 +742,25 @@ div {
 	}
 }
 
-@-webkit-keyframes slideb {
+@include keyframes(slideb) {
 	0% {
-        -webkit-transform: translate(0, 0);
+        @include transform(translate(0, 0));
 	}
     
     50% { 
-        -webkit-transform: translate(900px, 0);
+        @include transform(translate(900px, 0));
     }
 	100% {
-		-webkit-transform: translate(0, 0);
+		@include transform(translate(0, 0));
 	}
 }
 
-@-webkit-keyframes turnb {
+@include keyframes(turnb) {
 	0% {
-		-webkit-transform: rotate(0deg);
+		@include transform(rotate(0deg));
 	}
 	100% {
-		-webkit-transform: rotate(360deg);
+		@include transform(rotate(360deg));
 	}
 }
 
@@ -808,38 +782,39 @@ div {
 			width: 20px;
 			height: 0px;
 		}
+	
+	&:hover div {
+		width: 20px;
+		height: 200px;
+
+	}
 }
 
 .bar1 {
 	background-color: red;
-	-webkit-transform: rotate(72deg);
+	@include transform(rotate(72deg));
 }
 
 .bar2 {	
 	background-color: blue;
-	-webkit-transform: rotate(144deg);
+	@include transform(rotate(144deg));
 }
 
 .bar3 {
 	background-color: red;
-	-webkit-transform: rotate(216deg);
+	@include transform(rotate(216deg));
 }
 
 .bar4 {
 	background-color: blue;
-	-webkit-transform: rotate(288deg);
+	@include transform(rotate(288deg));
 }
 
 .bar5 {
 	background-color: green;
-	-webkit-transform: rotate(360deg);
+	@include transform(rotate(360deg));
 }
 
-.bloomcontainer:hover .bar-star {
-	width: 20px;
-	height: 200px;
-
-}
 
 /*example 19*/
 .fabulous {
@@ -864,22 +839,23 @@ div {
 			visibility: hidden;
 			
 		}
-}
-
-.fabulous:hover {
-	-webkit-animation: colorb .7s 0 linear infinite;
-
-	img {
-		visibility: visible;
-		-webkit-animation: fab 1s 0 linear infinite;
-	}
 	
-	span {
-		visibility: visible;
+	&:hover {
+		@include animation (colorb, .7s, 0s, linear, infinite, normal);
+
+		img {
+			visibility: visible;
+			@include animation (fab, 1s, 0, linear, infinite, normal);
+		}
+		
+		span {
+			visibility: visible;
+		}
 	}
 }
 
-@-webkit-keyframes fab {
+
+@include keyframes(fab) {
 	0% { left: 898px;
 	}
 	100% {
@@ -887,7 +863,7 @@ div {
 	}
 }
 
-@-webkit-keyframes colorb {
+@include keyframes(colorb) {
 	0% {
 		background-color: red;
 	}
@@ -919,56 +895,57 @@ div {
 .newt1{
 	left: 0px;
 	-webkit-transform-origin: 200px -500px;
-	-webkit-animation: swingl 1.5s 0 linear infinite;
+	@include animation (swingl, 1.5s, 0s, linear, infinite, normal)
 }
 
 @-webkit-keyframes swingl {
 	0% {
-		-webkit-transform: rotate(0deg);
+		@include transform(rotate(0deg));
 	}
 	25% {
-		-webkit-transform: rotate(35deg);
+		@include transform(rotate(35deg));
 	}
 	30% {
-		-webkit-transform: rotate(30deg);
+		@include transform(rotate(30deg));
 	}
 	45% {
-		-webkit-transform: rotate(0deg);
+		@include transform(rotate(0deg));
 	}
 	100% {
-		-webkit-transform: rotate(0deg);
+		@include transform(rotate(0deg));
 	}
 }
 
 .newt2 {left: 100px;}
 
-.newt3{ left: 200px;}
+.newt3 {left: 200px;}
 
 .newt4 {left: 300px;}
 
 .newt5 {
 	left: 400px;
 	-webkit-transform-origin: -200px -500px;
-	-webkit-animation: swingr 1.5s 0 linear infinite;
+	@include animation (swingr, 1.5s, 0s, linear, infinite, normal);
 }
+
 
 @-webkit-keyframes swingr {
 	0% {
-		-webkit-transform: rotate(0deg);
+		@include transform(rotate(0deg));
 	}
 	
 	50% {
-		-webkit-transform: rotate(0deg);
+		@include transform(rotate(0deg));
 	}
 
 	75% {
-		-webkit-transform: rotate(-35deg);
+		@include transform(rotate(-35deg));
 	}
 	80%{
-		-webkit-transform: rotate(-30deg);
+		@include transform(rotate(-30deg));
 	}
 	100% {
-		-webkit-transform: rotate(0deg);
+		@include transform(rotate(0deg));
 	}
 }
 
@@ -977,44 +954,44 @@ div {
 	width:200px;
 	height: 300px;
 	position: relative;
-	-webkit-perspective: 600;
+	@include perspective(600);
 	
 	div {
 		width: 100%;
 		height:100%;
 		position: absolute;
-		-webkit-transform-style: preserve-3d;
+		@include transform-style(preserve-3d);
 	  	-webkit-transition: -webkit-transform 1s;
-		-webkit-transform-origin: right right;
+		@include transform-origin(right right);
 			
 			div {
 				display: block;
 				position: absolute;
 				width: 100%;
 				height: 100%;
-				-webkit-backface-visibility: hidden;
+				@include backface-visibility(hidden);
 			}
 			img {
 				height: 300px;
 				width: 200px;
 			}
+
+	}
+	
+	&:hover .card {
+	  @include transform(rotateY(180deg));
 	}
 }
 
 .back {
-  -webkit-transform: rotateY(180deg);
+@include transform(rotateY(180deg));
 }
-.cardboundry:hover .card {
-  -webkit-transform: rotateY(180deg);
-}
-
-
 /*example 22*/
 .doorboundry {
 	width:200px;
 	height: 300px;
 	position: relative;
-	-webkit-perspective: 500;
+	@include perspective(500);
 
 	img {
 			width: 200px;
@@ -1026,35 +1003,37 @@ div {
 		width: 100%;
 		height:100%;
 		position: absolute;
-		-webkit-transform-style: preserve-3d;
+		@include transform-style(preserve-3d);
 	  	-webkit-transition: -webkit-transform 1s;
-		-webkit-transform-origin: left center;
+		@include transform-origin(left center);
 			
 			div {
 				display: block;
 				position: absolute;
 				width: 100%;
 				height: 100%;
-				-webkit-backface-visibility: visible;
-				
+				@include backface-visibility(visible);	
 			}
+
 			img {
 				position: absolute;
 				height: 300px;
 				width: 200px;
 			}
 	}
+	
+	&:hover .door {
+	  @include transform(rotateY(-180deg));
+	}
+
+	&:hover {
+	  background-image: url("images/portaj.jpg");
+	}
 }
 
 .dback {
-  -webkit-transform: rotateY(180deg);
+  @include transform(rotateY(180deg));
  
-}
-.doorboundry:hover .door {
-  -webkit-transform: rotateY(-180deg);
-}
-.doorboundry:hover {
-  background-image: url("images/portaj.jpg");
 }
 
 /*example 23*/
@@ -1062,7 +1041,7 @@ div {
 	height: 200px;
 	width: 200px;
 	position: relative;
-	-webkit-perspective: 500;
+	@include perspective(500);
 	background-color: gray;
 	border-radius: 50%;
 	
@@ -1070,16 +1049,16 @@ div {
 		width: 100%;
 		height:100%;
 		position: absolute;
-		-webkit-transform-style: preserve-3d;
+		@include transform-style(preserve-3d);
 	  	-webkit-transition: -webkit-transform 1s;
-		-webkit-transform-origin: top top;
+		@include transform-origin(top top);
 
 			div {
 				display: block;
 				position: absolute;
 				width: 100%;
 				height: 100%;
-				-webkit-backface-visibility: hidden;	
+				@include backface-visibility(hidden);	
 			}
 			
 			img {
@@ -1088,26 +1067,27 @@ div {
 				border-radius: 50%;
 			}
 	}
+	
+	&:hover .coin {
+		@include transform(rotateX(360deg));
+	}
 }
 
 .cointails{
-	-webkit-transform: rotateX(180deg);
+	@include transform(rotateX(180deg));
 }
 
-.coinbox:hover .coin {
-	-webkit-transform: rotateX(360deg);
-}
 
 /*example 24*/
 .glowbox {
 	width: 200px;
 	height: 200px;
 	background-color: #3A46F2;
-	-webkit-animation: glowb 2s 0 linear infinite alternate;
+	@include animation (glowb, 2s, 0s, linear, infinite, alternate);
 	border-radius: 50%;
 }
 
-@-webkit-keyframes glowb {
+@include keyframes(glowb) {
 	0% {
 		box-shadow: 0 0 0px 0px #8D94F0;
 	}
@@ -1126,57 +1106,60 @@ div {
 		width: 100px;
 		position: absolute;
 		background-color: red;
-		-webkit-transform: skew(30deg, 40deg);
+		@include transform(skew(30deg, 40deg));
 	}
 	.pin1 {
 		background-color: blue;
-		-webkit-animation: pinq 1s 0 linear infinite;
+		@include animation (pinq, 1s, 0s, linear, infinite, normal)
 	}
-	@-webkit-keyframes pinq {
+
+	@include keyframes(pinq) {
 		0% {
-			-webkit-transform: rotate(0deg);
+			@include transform(rotate(0deg));
 		}
 		100% {
-			-webkit-transform: rotate(360deg);
+			@include transform(rotate(360deg));
 		}
 		
 	}
 	.pin2 {
 		background-color: green;
-		-webkit-animation: pinw 1s 0 linear infinite;
+		@include animation (pinw, 1s, 0s, linear, infinite, normal)
 	}
-	@-webkit-keyframes pinw {
+	@include keyframes(pinw) {
 		0% {
-			-webkit-transform: rotate(0deg);
+			@include transform(rotate(0deg));
 		}
 		100% {
-			-webkit-transform: rotate(-360deg);
+			@include transform(rotate(-360deg));
 		}
 		
 	}
 	.pin3 {
 		background-color: yellow;
-		-webkit-animation: pine .8s 0 linear infinite;
+		@include animation (pine, .8s, 0s, linear, infinite, normal)
+
 	}
-	@-webkit-keyframes pine {
+	@include keyframes(pine) {
 		0% {
-			-webkit-transform: rotate(0deg);
+			@include transform(rotate(0deg));
 		}
 		100% {
-			-webkit-transform: rotate(360deg);
+			@include transform(rotate(360deg));
 		}
 		
 	}
 	.pin4 {
 		background-color: red;
-		-webkit-animation: pinr .8s 0 linear infinite;
+		@include animation (pinr, 1s, .8s, linear, infinite, normal)
+
 	}
-	@-webkit-keyframes pinr {
+	@include keyframes(pinr) {
 		0% {
-			-webkit-transform: rotate(0deg);
+			@include transform(rotate(0deg));
 		}
 		100% {
-			-webkit-transform: rotate(-180deg);
+			@include transform(rotate(-180deg));
 		}
 		
 	}
@@ -1208,48 +1191,51 @@ div {
 .closecircle {
 	left: 400px;
 	top: 170px;
-	-webkit-animation: closer .8s 0 linear infinite;
-	-webkit-transform-origin: 0px -30px;
+	@include animation (closer, .8s, 0s, linear, infinite, normal);
+
+	@include transform-origin(0px -30px);
 }
 
-@-webkit-keyframes closer {
+@include keyframes(closer) {
 	0% {
-		-webkit-transform: rotate(0deg);
+		@include transform(rotate(0deg));
 	}
 	100% {
-		-webkit-transform: rotate(360deg);
+		@include transform(rotate(360deg));
 	}
 }
 
 .outcircle {
 	left: 400px;
 	top: 190px;
-	-webkit-animation: outr .6s 0 linear infinite;
-	-webkit-transform-origin: 0px -50px;
+	@include animation (outr, .6s, 0s, linear, infinite, normal);
+
+	@include transform-origin(0px -50px);
 }
 
-@-webkit-keyframes outr {
+@include keyframes(outr) {
 	0% {
-		-webkit-transform: rotate(0deg);
+		@include transform(rotate(0deg));
 	}
 	100% {
-		-webkit-transform: rotate(-360deg);
+		 @include transform(rotate(-360deg));
 	}
 }
 
 .farcircle {
 	left: 400px;
 	top: 210px;
-	-webkit-animation: farr 1s 0 linear infinite;
-	-webkit-transform-origin: 0px -70px;
+	@include animation (farr, 1s, 0s, linear, infinite, normal);
+
+	@include transform-origin(0px -70px);
 }
 
-@-webkit-keyframes farr {
+@include keyframes(farr) {
 	0% {
-		-webkit-transform: rotate(0deg);
+		@include transform(rotate(0deg));
 	}
 	100% {
-		-webkit-transform: rotate(360deg);
+		@include transform(rotate(360deg));
 	}
 }
 
@@ -1261,11 +1247,12 @@ div {
 		font-family: 'helvetica';
 		font-size: 17px;
 		color: green;
-		-webkit-animation: groww 2s 0 linear infinite alternate;
+		@include animation (groww, 2s, 0s, linear, infinite, alternate)
+
 }
 }
 	
-@-webkit-keyframes groww {
+@include keyframes(groww) {
 	0% {
 		font-size: 17px;
 	}
@@ -1287,6 +1274,17 @@ div {
 		background-color: lime;
 		transition: all 0.4s 0s ease;
 	}
+	
+	&:hover {
+		
+		.trap1{
+			@include transform(skew(10deg, 15deg));
+		}
+
+		.trap2 {
+			@include transform(skew(-10deg,-15deg));
+		}
+	}
 }
 
 .trap1 {
@@ -1296,16 +1294,6 @@ div {
 
 .trap2 {
 	float: right;
-}
-.trapbox:hover {
-	
-	.trap1{
-		-webkit-transform: skew(10deg, 15deg);
-	}
-
-	.trap2 {
-		-webkit-transform: skew(-10deg,-15deg);
-	}
 }
 
 /*example 29*/
@@ -1319,11 +1307,12 @@ div {
 		background-color: purple;
 		margin: 5px;
 	}
+	
+	div:hover {
+		opacity: 0;
+	}
 }
 
-.boxbox div:hover {
-	opacity: 0;
-}
 
 /*example 20*/
 .heman {
@@ -1340,10 +1329,11 @@ div {
 		bottom: 0;
 		left:0;
 	}
-}
-.heman:active img {
-	-webkit-transform: scale(50,50);
-	transition: all 10s 0s linear;
+	
+	&:active img {
+		@include scale (50,50);
+		transition: all 10s 0s linear;
+	}
 }
 
 

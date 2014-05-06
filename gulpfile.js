@@ -1,5 +1,6 @@
 var gulp        = require('gulp'),
     gutil       = require('gulp-util'),
+    bourbon     = require('node-bourbon').includePaths,
     sass        = require('gulp-sass'),
     csso        = require('gulp-csso'),
     uglify      = require('gulp-uglify'),
@@ -19,7 +20,7 @@ gulp.task('css', function() {
   return gulp.src('src/assets/stylesheets/*.scss')
     .pipe( 
       sass( { 
-        includePaths: ['src/assets/stylesheets'],
+        includePaths: ['src/assets/stylesheets'].concat(bourbon),
         errLogToConsole: true
       } ) )
     .pipe( csso() )
@@ -40,6 +41,11 @@ gulp.task('templates', function() {
     .pipe(jade({
       pretty: true
     }))
+    .pipe(gulp.dest('dist/'))
+    .pipe( livereload( server ));
+});
+gulp.task('move-html', function() {
+  return gulp.src('src/*.html')
     .pipe(gulp.dest('dist/'))
     .pipe( livereload( server ));
 });
@@ -66,4 +72,4 @@ gulp.task('watch', function () {
 });
  
 // Default Task
-gulp.task('default', ['js','css','templates','express','watch']);
+gulp.task('default', ['js','css','templates','express','watch', 'move-html']);

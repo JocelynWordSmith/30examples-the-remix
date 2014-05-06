@@ -1,0 +1,56 @@
+@mixin scale ($s-width,$s-height) {
+  -webkit-transform: scale($s-width,$s-height);
+     -moz-transform: scale($s-width,$s-height);
+      -ms-transform: scale($s-width,$s-height);
+          transform: scale($s-width,$s-height);
+}
+
+@mixin blur ($fuzz) {
+  -webkit-filter: blur($fuzz);
+     -moz-filter: blur($fuzz);
+      -ms-filter: blur($fuzz);
+          filter: blur($fuzz);
+}
+
+@mixin animation ($anim-name, $anim-length, $anim-delay, $anim-type, $anim-duration, $anim-rp) {
+  -webkit-animation: $anim-name $anim-length $anim-delay $anim-type $anim-duration $anim-rp;
+     -moz-animation: $anim-name $anim-length $anim-delay $anim-type $anim-duration $anim-rp;
+      -ms-animation: $anim-name $anim-length $anim-delay $anim-type $anim-duration $anim-rp;
+          animation: $anim-name $anim-length $anim-delay $anim-type $anim-duration $anim-rp;
+}
+
+@mixin glowbutt($color:#7A1F1A){
+
+	display:inline-block;
+    width:100px;
+    height:100px;
+    line-height:100px;
+    text-align: center;
+    background: $color;
+    border-radius: 50%;
+    box-shadow: inset 0 -6px 0 0 darken($color, 12%);
+    margin: 10px;
+    transition: all 0 0 linear;
+	
+	&:hover {
+		height: 97px;
+		box-shadow: inset 0 -3px 0 0 darken($color, 12%);
+		margin-top: 13px;
+		margin-bottom: 10px;
+	}
+	
+	&:active {
+		height: 93px;
+		margin-top: 17px;
+		margin-bottom: 10px;
+		width: 97px;
+		background: lighten($color, 14%);
+		box-shadow: 0 0 15px 5px lighten($color,14%);
+	}
+
+
+
+
+
+
+}
